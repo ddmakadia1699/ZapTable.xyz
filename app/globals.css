@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ── ZapTable design tokens ──────────────────────────────────────────── */
+@theme {
+  --color-ink: #07080a;
+  --color-surface: #0e1015;
+  --color-surface-2: #14171f;
+  --color-line: #222630;
+  --color-muted: #808a9d;
+  --color-zap: #10b981; /* emerald-500 */
+  --color-zap-2: #06b6d4; /* cyan-500 */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphic Panel */
+.glass-panel {
+  background: rgba(14, 16, 21, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Background Grid Overlay */
+.bg-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Glowing text gradients */
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Radial Glow Background */
+.zap-glow {
+  background:
+    radial-gradient(50% 40% at 50% 0%, rgba(16, 185, 129, 0.12), transparent 75%),
+    radial-gradient(40% 30% at 85% 15%, rgba(6, 182, 212, 0.08), transparent 70%),
+    radial-gradient(40% 30% at 15% 75%, rgba(16, 185, 129, 0.06), transparent 70%);
+}
+
+/* Card Surface */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Zap Primary Action Button */
+.btn-zap {
+  background: linear-gradient(180deg, #10b981, #059669);
+  color: #04140c;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: filter 0.15s ease, transform 0.05s ease, box-shadow 0.2s ease;
+}
+.btn-zap:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+.btn-zap:active {
+  transform: translateY(1px);
+}
+.btn-zap:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chip {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface-2);
+}
+
+/* Custom range slider thumb styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}

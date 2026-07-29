@@ -1,0 +1,32 @@
+{
+  "name": "zaptable",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ZapTable — scan a QR, order from your phone's browser, no app.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/bedrock-sdk": "^0.30.2",
+    "@anthropic-ai/sdk": "^0.71.0",
+    "@supabase/supabase-js": "^2.108.2",
+    "next": "^15.1.6",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/aws-lambda": "^8.10.162",
+    "@types/node": "^22.10.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

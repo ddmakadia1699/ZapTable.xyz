@@ -1,0 +1,81 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  ZapTable backend — AWS Lambda + API Gateway (HTTP API). Database & auth are Supabase.
+  SCAFFOLD: a starting point. Handlers live in lambda/<name>/ ; wire the data layer
+  (lib/db) and verify the Supabase JWT for admin routes before deploying.
+
+Parameters:
+  SupabaseUrl:
+    Type: String
+  SupabaseServiceRoleKey:
+    Type: String
+    NoEcho: true
+  SupabaseJwtSecret:
+    Type: String
+    NoEcho: true
+    Description: HS256 secret used by the Lambda authorizer to verify admin JWTs.
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+    Timeout: 15
+    MemorySize: 512
+    Environment:
+      Variables:
+        SUPABASE_URL: !Ref SupabaseUrl
+        SUPABASE_SERVICE_ROLE_KEY: !Ref SupabaseServiceRoleKey
+        SUPABASE_JWT_SECRET: !Ref SupabaseJwtSecret
+
+Resources:
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: ["*"] # TODO: lock to your frontend origin
+        AllowHeaders: ["authorization", "content-type"]
+        AllowMethods: ["GET", "POST", "PATCH", "OPTIONS"]
+
+  # Verifies the Supabase admin JWT (HS256 with SUPABASE_JWT_SECRET) for admin routes.
+  AuthorizerFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda/authorizer/handler.handler
+      Description: Supabase JWT authorizer for admin routes.
+
+  # ── Guest (public) — ordering, menu, social, chat ────────────────────
+  OrdersFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda/orders/handler.handler
+      Events:
+        Create: { Type: HttpApi, Properties: { ApiId: !Ref Api, Path: /orders, Method: POST } }
+        List:   { Type: HttpApi, Properties: { ApiId: !Ref Api, Path: /orders, Method: GET } }
+
+  SocialFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda/social/handler.handler
+      Events:
+        Presence: { Type: HttpApi, Properties: { ApiId: !Ref Api, Path: /social, Method: GET } }
+        Join:     { Type: HttpApi, Properties: { ApiId: !Ref Api, Path: /social, Method: POST } }
+
+  # ── Admin (JWT-protected) — settings, menu mgmt, KDS ─────────────────
+  AdminFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda/admin/handler.handler
+      Events:
+        Settings:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /admin/{proxy+}
+            Method: ANY
+            # TODO: attach a Lambda authorizer referencing AuthorizerFn once wired.
+
+Outputs:
+  ApiBaseUrl:
+    Description: Set this as NEXT_PUBLIC_API_BASE_URL in the frontend.
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com"
