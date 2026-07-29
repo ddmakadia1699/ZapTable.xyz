@@ -3,12 +3,18 @@
 // Uses the SERVICE-ROLE key, which bypasses RLS. This must run only on the server
 // (AWS Lambda / Next.js route handlers) — never ship the service-role key to the
 // browser. The frontend talks to our API, not Supabase directly.
-//
-// Every query MUST still scope by tenant_id in code (service role bypasses RLS).
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 let cached: SupabaseClient | null = null;
+
+export function hasSupabase(): boolean {
+  return Boolean(
+    process.env.SUPABASE_URL &&
+    process.env.SUPABASE_SERVICE_ROLE_KEY &&
+    process.env.SUPABASE_URL.startsWith("http")
+  );
+}
 
 export function db(): SupabaseClient {
   if (cached) return cached;
