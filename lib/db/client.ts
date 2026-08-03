@@ -1,7 +1,7 @@
-// Supabase server client — TRUSTED BACKEND ONLY.
+// Supabase server client - TRUSTED BACKEND ONLY.
 //
 // Uses the SERVICE-ROLE key, which bypasses RLS. This must run only on the server
-// (AWS Lambda / Next.js route handlers) — never ship the service-role key to the
+// (AWS Lambda / Next.js route handlers) - never ship the service-role key to the
 // browser. The frontend talks to our API, not Supabase directly.
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";

@@ -7,7 +7,7 @@ export function money(amount: number, currency: string): string {
       maximumFractionDigits: 2,
     }).format(amount);
   } catch {
-    // Unknown currency code — fall back to a plain number.
+    // Unknown currency code - fall back to a plain number.
     return `${currency} ${amount.toFixed(2)}`;
   }
 }

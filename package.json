@@ -2,7 +2,7 @@
   "name": "zaptable",
   "version": "0.1.0",
   "private": true,
-  "description": "ZapTable — scan a QR, order from your phone's browser, no app.",
+  "description": "ZapTable - scan a QR, order from your phone's browser, no app.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

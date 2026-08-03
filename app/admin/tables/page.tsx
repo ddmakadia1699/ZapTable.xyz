@@ -35,7 +35,7 @@ export default async function TablesPage() {
         <div>
           <h1 className="text-2xl font-semibold">Tables &amp; QR codes</h1>
           <p className="mt-1 text-sm text-[var(--color-muted)]">
-            Each table gets a unique QR. Print them on table tents or stickers —
+            Each table gets a unique QR. Print them on table tents or stickers -
             scanning opens the guest menu for that table.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default async function TablesPage() {
       </div>
 
       <p className="mt-6 text-xs text-[var(--color-muted)]">
-        QR target base URL is <code className="text-[var(--color-zap)]">{baseUrl()}</code> — set{" "}
+        QR target base URL is <code className="text-[var(--color-zap)]">{baseUrl()}</code> - set{" "}
         <code className="text-[var(--color-zap)]">NEXT_PUBLIC_BASE_URL</code> for production. A
         downloadable print-ready PDF of all codes is on the roadmap.
       </p>

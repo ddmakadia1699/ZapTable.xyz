@@ -27,7 +27,7 @@ export default function MenuUpload({ slug }: { slug: string }) {
             ? "with Claude on AWS Bedrock."
             : data.source === "anthropic"
               ? "with Claude vision."
-              : "(sample menu — set ANTHROPIC_API_KEY or LLM_PROVIDER=bedrock for real reading)."),
+              : "(sample menu - set ANTHROPIC_API_KEY or LLM_PROVIDER=bedrock for real reading)."),
       });
       router.refresh();
     } catch (e) {
@@ -43,7 +43,7 @@ export default function MenuUpload({ slug }: { slug: string }) {
       <h2 className="font-semibold">Upload your menu</h2>
       <p className="mt-1 text-sm text-[var(--color-muted)]">
         Drop a photo or PDF of your existing menu. ZapTable reads it into items,
-        prices and categories — review and tweak below. Replaces the current menu.
+        prices and categories - review and tweak below. Replaces the current menu.
       </p>
 
       <label

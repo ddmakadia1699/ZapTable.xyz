@@ -2,7 +2,7 @@
 // PUT  /api/admin/settings  { slug, settings } -> save
 //
 // THIN ADAPTER ONLY. All logic lives in lib/store (getSettings/updateSettings) so this
-// maps 1:1 onto an AWS Lambda handler later — the handler will call the same functions.
+// maps 1:1 onto an AWS Lambda handler later - the handler will call the same functions.
 // (Admin auth via Supabase JWT gets added when we move to the real backend.)
 
 import { NextResponse } from "next/server";

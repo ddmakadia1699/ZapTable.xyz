@@ -1,6 +1,6 @@
 // GET  /api/social?slug=&sid=        -> presence for this device (join state + people)
 // POST /api/social  { slug, sid, name, igHandle?, openToChat }  -> join / update
-// The social layer is independent of ordering — anyone who scanned can join.
+// The social layer is independent of ordering - anyone who scanned can join.
 
 import { NextResponse } from "next/server";
 import { getSocialPresence, joinSocial } from "@/lib/store";

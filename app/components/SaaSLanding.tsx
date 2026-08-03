@@ -177,7 +177,7 @@ export function SaaSLanding({
 
             {/* Subheading */}
             <p className="mt-6 text-lg sm:text-2xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
-              The high-velocity digital ordering platform for modern restaurants. Guests scan, order, and pay directly in their phone browser —{" "}
+              The high-velocity digital ordering platform for modern restaurants. Guests scan, order, and pay directly in their phone browser -{" "}
               <strong className="text-white font-semibold">no app downloads, no account setup, zero waiting.</strong>
             </p>
 
@@ -895,7 +895,7 @@ export function SaaSLanding({
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-slate-200 font-bold">ZapTable.xyz</span>
-            <span>&mdash; Modern Dine-In QR Infrastructure</span>
+            <span>- Modern Dine-In QR Infrastructure</span>
           </div>
 
           <div className="flex items-center gap-6">

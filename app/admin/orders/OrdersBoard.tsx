@@ -49,7 +49,7 @@ export default function OrdersBoard({ slug }: { slug: string }) {
     return (
       <div className="card mt-6 p-10 text-center text-[var(--color-muted)]">
         No orders yet. Open a{" "}
-        <span className="text-[var(--color-zap)]">guest table link</span> and place one —
+        <span className="text-[var(--color-zap)]">guest table link</span> and place one -
         it&apos;ll appear here within a few seconds.
       </div>
     );

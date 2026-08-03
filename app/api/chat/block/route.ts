@@ -1,5 +1,5 @@
 // POST /api/chat/block  { me, target }
-// Block (also used for "report & block") — stops messages both ways.
+// Block (also used for "report & block") - stops messages both ways.
 
 import { NextResponse } from "next/server";
 import { blockChat } from "@/lib/store";

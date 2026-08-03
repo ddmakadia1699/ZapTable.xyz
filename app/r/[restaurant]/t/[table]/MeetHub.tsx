@@ -99,13 +99,13 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
     );
   }
 
-  // Join / edit form — shown until you're visible (open to chat or shared IG).
+  // Join / edit form - shown until you're visible (open to chat or shared IG).
   if (!data || !data.shared || editing) {
     return shell(
       <div className="card mt-6 p-5">
         <h1 className="text-lg font-semibold">Say you&apos;re here</h1>
         <p className="mt-1 text-sm text-[var(--color-muted)]">
-          Join with just a first name — no order needed. You&apos;ll see others here who joined too. Opt-in &amp; 18+.
+          Join with just a first name - no order needed. You&apos;ll see others here who joined too. Opt-in &amp; 18+.
         </p>
 
         <div className="mt-4 space-y-3">
@@ -140,7 +140,7 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
             <span>
               <span className="font-medium">Open to chat in-app</span>
               <span className="mt-0.5 block text-xs text-[var(--color-muted)]">
-                First names only — never your number. Block or report anyone, anytime.
+                First names only - never your number. Block or report anyone, anytime.
               </span>
             </span>
           </label>
@@ -159,7 +159,7 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
     );
   }
 
-  // You're in — show who else is here.
+  // You're in - show who else is here.
   return shell(
     <div className="mt-6">
       <div className="flex items-center justify-between">
@@ -173,7 +173,7 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
 
       {data.people.length === 0 ? (
         <div className="card mt-3 p-6 text-center text-sm text-[var(--color-muted)]">
-          No one else is here yet 🙂 Hang tight — you&apos;ll see people as they join.
+          No one else is here yet 🙂 Hang tight - you&apos;ll see people as they join.
         </div>
       ) : (
         <ul className="mt-3 space-y-2">

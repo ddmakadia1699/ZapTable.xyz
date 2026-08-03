@@ -1,5 +1,5 @@
 // GET /api/trending?slug=demo-cafe
-// Anonymous, aggregate "what others are ordering" — counts only, no identities.
+// Anonymous, aggregate "what others are ordering" - counts only, no identities.
 
 import { NextResponse } from "next/server";
 import { getTrending } from "@/lib/db/repo";

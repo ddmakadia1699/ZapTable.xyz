@@ -1,5 +1,5 @@
 // Core domain types for ZapTable.
-// Kept deliberately small for the MVP scaffold — extend as features land.
+// Kept deliberately small for the MVP scaffold - extend as features land.
 
 export interface MenuItem {
   id: string;
@@ -76,11 +76,11 @@ export interface Reward {
   label: string; // e.g. "₹100 off your next visit"
   kind: RewardKind;
   value?: number; // for kind "amount"
-  expiresAt: number; // epoch ms — loss aversion: rewards expire
+  expiresAt: number; // epoch ms - loss aversion: rewards expire
   redeemed: boolean;
 }
 
-// A recognised, returning guest — keyed by phone within a restaurant.
+// A recognised, returning guest - keyed by phone within a restaurant.
 export interface Guest {
   phone: string;
   name?: string;
@@ -97,7 +97,7 @@ export interface Guest {
 }
 
 // The social layer is INDEPENDENT of ordering: anyone who scans can join "meet &
-// chat" with just a name — no checkout required. A Participant is keyed by a
+// chat" with just a name - no checkout required. A Participant is keyed by a
 // device session id (sid), so non-ordering guests can take part too.
 export interface Participant {
   sid: string; // device/session id, generated client-side
@@ -107,7 +107,7 @@ export interface Participant {
   igHandle?: string; // optional IG to share
   openToChat: boolean; // opted into 1:1 chat
   createdAt: number;
-  lastSeen: number; // refreshed on activity — drives "here now"
+  lastSeen: number; // refreshed on activity - drives "here now"
 }
 
 // A single 1:1 chat message between two opted-in participants at a venue.

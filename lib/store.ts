@@ -1,6 +1,6 @@
 // In-memory data store for the ZapTable MVP scaffold.
 //
-// This is intentionally NOT a database — it's a single-process store so the
+// This is intentionally NOT a database - it's a single-process store so the
 // demo runs with zero setup. State resets when the server restarts. Swap this
 // module for Postgres/Prisma when moving past the scaffold; the function
 // signatures below are the seam to do that behind.
@@ -117,7 +117,7 @@ export function getRestaurant(slug: string): Restaurant | undefined {
   return db.restaurants.get(slug);
 }
 
-// ── Settings (admin-controlled) — framework-agnostic service functions. ──
+// -- Settings (admin-controlled) - framework-agnostic service functions. --
 // These are the seam the future AWS Lambda handlers call; today they back onto the
 // in-memory store, later onto Supabase, with the same signatures.
 export function getSettings(slug: string): Settings | undefined {
@@ -214,7 +214,7 @@ function codeKey(slug: string, code: string): string {
   return `${slug}:${code.toUpperCase()}`;
 }
 
-// Short, unambiguous invite codes (no 0/O/1/I) — easy to read off a phone.
+// Short, unambiguous invite codes (no 0/O/1/I) - easy to read off a phone.
 function genCode(slug: string): string {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "";
@@ -236,7 +236,7 @@ function makeReward(label: string, kind: RewardKind, value: number | undefined, 
 }
 
 // Variable reward (the "scratch card"). Odds + amount come from the tenant's settings.
-// The randomness is decided here, ONCE, at order time — the client only reveals it.
+// The randomness is decided here, ONCE, at order time - the client only reveals it.
 function rollScratchReward(currency: string, cfg: Settings["scratch"], ttlMs: number): Reward {
   const r = Math.random();
   if (r < cfg.amountOdds) {
@@ -245,7 +245,7 @@ function rollScratchReward(currency: string, cfg: Settings["scratch"], ttlMs: nu
   if (r < cfg.amountOdds + cfg.freeItemOdds) {
     return makeReward("A free dessert on your next visit", "freeItem", undefined, ttlMs);
   }
-  return makeReward("No prize this time — but your loyalty stamp is in ⭐", "none", undefined, ttlMs);
+  return makeReward("No prize this time - but your loyalty stamp is in ⭐", "none", undefined, ttlMs);
 }
 
 export interface OrderBundle {
@@ -265,7 +265,7 @@ function sanitizeHandle(raw: string): string {
 }
 
 // "Left the venue" = inactive longer than the tenant's configured session TTL.
-// When that passes, presence is dropped and chats deleted — chat is ephemeral.
+// When that passes, presence is dropped and chats deleted - chat is ephemeral.
 function sessionTtlMs(slug: string): number {
   return (db.restaurants.get(slug)?.settings.social.sessionTtlMinutes ?? 30) * 60 * 1000;
 }
@@ -297,7 +297,7 @@ export function placeOrder(
       name: name?.trim() || undefined,
       restaurantSlug: slug,
       visits: 0,
-      stamps: cfg.features.loyalty ? cfg.loyalty.headStart : 0, // head start — endowed progress
+      stamps: cfg.features.loyalty ? cfg.loyalty.headStart : 0, // head start - endowed progress
       stampGoal: cfg.loyalty.stampGoal,
       rewards: [],
       code,
@@ -319,7 +319,7 @@ export function placeOrder(
     guest.stamps += 1;
     if (guest.stamps >= guest.stampGoal) {
       guest.stamps -= guest.stampGoal; // carry the overflow into the next card
-      guest.rewards.push(makeReward("🎉 Free dessert — your loyalty card is complete!", "freeItem", undefined, ttlMs));
+      guest.rewards.push(makeReward("🎉 Free dessert - your loyalty card is complete!", "freeItem", undefined, ttlMs));
       loyaltyJustCompleted = true;
     }
   }
@@ -333,12 +333,12 @@ export function placeOrder(
     if (direct && directKey !== key) {
       const off = money(cfg.referral.value, order.currency);
       guest.referredBy = direct.code;
-      guest.rewards.push(makeReward(`${off} off your next visit — welcome gift 🎁`, "amount", cfg.referral.value, ttlMs));
+      guest.rewards.push(makeReward(`${off} off your next visit - welcome gift 🎁`, "amount", cfg.referral.value, ttlMs));
 
       direct.referrals += 1;
       direct.rewards.push(
         makeReward(
-          `${guest.name ?? "A friend"} you invited just ordered — ${off} off your next visit 🙌`,
+          `${guest.name ?? "A friend"} you invited just ordered - ${off} off your next visit 🙌`,
           "amount",
           cfg.referral.value,
           ttlMs,
@@ -347,14 +347,14 @@ export function placeOrder(
       referredCredited = true;
       referralName = direct.name;
 
-      // One level up: A → B → C — A is rewarded when C joins.
+      // One level up: A -> B -> C - A is rewarded when C joins.
       const grandKey = direct.referredBy ? db.codeIndex.get(codeKey(slug, direct.referredBy)) : undefined;
       const grand = grandKey ? db.guests.get(grandKey) : undefined;
       if (grand && grandKey !== key && grandKey !== directKey) {
         const off2 = money(cfg.referral.level2Value, order.currency);
         grand.referrals += 1;
         grand.rewards.push(
-          makeReward(`Your invite chain grew — ${off2} off your next visit 🌱`, "amount", cfg.referral.level2Value, ttlMs),
+          makeReward(`Your invite chain grew - ${off2} off your next visit 🌱`, "amount", cfg.referral.level2Value, ttlMs),
         );
       }
     }
@@ -430,7 +430,7 @@ export function getGuestSnapshot(
 }
 
 // ── Social layer (independent of ordering) ─────────────────────────────
-// Anyone who scans can join "meet & chat" with just a name — no order needed.
+// Anyone who scans can join "meet & chat" with just a name - no order needed.
 // Identities are a first name + a public code; never a phone number.
 export interface SocialPerson {
   name: string;
@@ -493,7 +493,7 @@ function asPerson(p: Participant): SocialPerson {
   return { name: p.name, code: p.code, handle: p.igHandle, openToChat: p.openToChat };
 }
 
-/** Join (or update) the social layer for this device — no order required. */
+/** Join (or update) the social layer for this device - no order required. */
 export function joinSocial(
   slug: string,
   sid: string,
@@ -628,7 +628,7 @@ export function listOrders(slug: string): Order[] {
 }
 
 /**
- * Anonymous, aggregate social proof — "what others are ordering" — from the
+ * Anonymous, aggregate social proof - "what others are ordering" - from the
  * last 24h. No guest identity is exposed; this is purely counts per item.
  */
 export function getTrending(slug: string, limit = 5): { name: string; qty: number }[] {

@@ -121,7 +121,7 @@ export default function ChatRoom({
       <div className="flex-1 space-y-2 overflow-y-auto px-4 py-4">
         {messages.length === 0 && (
           <p className="mt-6 text-center text-sm text-[var(--color-muted)]">
-            Say hi 👋 Keep it kind — be respectful.
+            Say hi 👋 Keep it kind - be respectful.
           </p>
         )}
         {messages.map((m) => {

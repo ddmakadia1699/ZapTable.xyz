@@ -105,7 +105,7 @@ export default function GuestOrder({
       const status: OrderStatus = data.order.status;
       setActiveOrder({ id: id!, status });
       if (status === "served") {
-        localStorage.removeItem(orderKey); // done — stop tracking next reload
+        localStorage.removeItem(orderKey); // done - stop tracking next reload
       }
     }
     poll();
@@ -116,7 +116,7 @@ export default function GuestOrder({
     };
   }, [orderKey]);
 
-  // "What others are ordering" — anonymous, aggregate social proof.
+  // "What others are ordering" - anonymous, aggregate social proof.
   useEffect(() => {
     let alive = true;
     async function load() {
@@ -170,7 +170,7 @@ export default function GuestOrder({
     setPlacing(true);
     setError(null);
     try {
-      // Payment is stubbed for the MVP scaffold — a real gateway (UPI/Razorpay,
+      // Payment is stubbed for the MVP scaffold - a real gateway (UPI/Razorpay,
       // Stripe) plugs in right here before the order is created.
       const res = await fetch("/api/orders", {
         method: "POST",
@@ -196,7 +196,7 @@ export default function GuestOrder({
 
   return (
     <main className="min-h-screen pb-28">
-      {/* Persistent tracker — always one tap back to "what I ordered & where it is". */}
+      {/* Persistent tracker - always one tap back to "what I ordered & where it is". */}
       {activeOrder && activeOrder.status !== "served" && (
         <Link
           href={`/r/${slug}/t/${tableId}/status?order=${activeOrder.id}`}
@@ -218,20 +218,20 @@ export default function GuestOrder({
           <p className="text-sm text-[var(--color-zap)]">
             {known.activeRewards > 0 && `You have ${known.activeRewards} reward${known.activeRewards > 1 ? "s" : ""} waiting · `}
             {stampsLeft === 0
-              ? "Your loyalty card is full — order to claim 🎁"
+              ? "Your loyalty card is full - order to claim 🎁"
               : `${stampsLeft} more visit${stampsLeft > 1 ? "s" : ""} to a free dessert 🍰`}
           </p>
         ) : (
-          <p className="text-sm text-[var(--color-muted)]">Order right from your phone — no app needed.</p>
+          <p className="text-sm text-[var(--color-muted)]">Order right from your phone - no app needed.</p>
         )}
         {(referrerName || ref) && !known && (
           <div className="chip mt-3 inline-flex items-center gap-2 px-3 py-1.5 text-xs text-[var(--color-zap)]">
-            🎁 {referrerName ? `${referrerName} invited you` : "You were invited"} — order to unlock a welcome gift for you both
+            🎁 {referrerName ? `${referrerName} invited you` : "You were invited"} - order to unlock a welcome gift for you both
           </div>
         )}
       </header>
 
-      {/* Social is independent of ordering — anyone here can join with just a name. */}
+      {/* Social is independent of ordering - anyone here can join with just a name. */}
       {social && (
         <Link
           href={`/r/${slug}/t/${tableId}/meet`}
@@ -239,7 +239,7 @@ export default function GuestOrder({
         >
           <span>
             👋 <span className="font-medium">Meet &amp; chat with people here</span>
-            <span className="text-[var(--color-muted)]"> — no order needed</span>
+            <span className="text-[var(--color-muted)]"> - no order needed</span>
           </span>
           <span className="text-[var(--color-zap)]">Open →</span>
         </Link>
@@ -333,7 +333,7 @@ export default function GuestOrder({
         </div>
       )}
 
-      {/* Checkout sheet — identity capture */}
+      {/* Checkout sheet - identity capture */}
       {checkoutOpen && (
         <div className="fixed inset-0 z-10 flex items-end bg-black/50" onClick={() => !placing && setCheckoutOpen(false)}>
           <div
@@ -343,7 +343,7 @@ export default function GuestOrder({
             <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-[var(--color-line)]" />
             <h2 className="text-lg font-semibold">Almost there</h2>
             <p className="mt-1 text-sm text-[var(--color-muted)]">
-              We&apos;ll text your receipt and track your rewards — no app, no spam.
+              We&apos;ll text your receipt and track your rewards - no app, no spam.
             </p>
 
             <div className="mt-4 space-y-3">
@@ -377,7 +377,7 @@ export default function GuestOrder({
                   />
                   {referrerName && (
                     <span className="mt-1 block text-xs text-[var(--color-zap)]">
-                      ✓ Invited by {referrerName} — you both get a reward
+                      ✓ Invited by {referrerName} - you both get a reward
                     </span>
                   )}
                 </label>
@@ -398,7 +398,7 @@ export default function GuestOrder({
               {placing ? "Placing…" : "Place order & pay"}
             </button>
             <p className="mt-2 text-center text-xs text-[var(--color-muted)]">
-              Payment is simulated in this scaffold — UPI / card checkout plugs in here.
+              Payment is simulated in this scaffold - UPI / card checkout plugs in here.
             </p>
           </div>
         </div>

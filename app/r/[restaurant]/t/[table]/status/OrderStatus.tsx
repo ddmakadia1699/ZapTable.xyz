@@ -9,7 +9,7 @@ const STEPS: { key: Status; label: string; icon: string }[] = [
   { key: "received", label: "Order received", icon: "🧾" },
   { key: "preparing", label: "Preparing in the kitchen", icon: "🔥" },
   { key: "ready", label: "Ready", icon: "✅" },
-  { key: "served", label: "Served — enjoy!", icon: "🍽️" },
+  { key: "served", label: "Served - enjoy!", icon: "🍽️" },
 ];
 
 interface Bundle {
@@ -69,7 +69,7 @@ export default function OrderStatus({ orderId, backHref }: { orderId: string; ba
           {bundle?.loyalty?.name ? `Thanks, ${bundle.loyalty.name}!` : "Your order"}
         </h1>
 
-        {/* Referral just credited — celebrate both sides. */}
+        {/* Referral just credited - celebrate both sides. */}
         {bundle?.loyalty?.referredCredited && (
           <div className="card mt-6 border-[var(--color-zap)] p-4 text-sm">
             🎁 <span className="font-semibold text-[var(--color-zap)]">Welcome gift unlocked!</span> You
@@ -78,18 +78,18 @@ export default function OrderStatus({ orderId, backHref }: { orderId: string; ba
           </div>
         )}
 
-        {/* Reward — the post-payment peak. Tap to reveal (variable reward). */}
+        {/* Reward - the post-payment peak. Tap to reveal (variable reward). */}
         {bundle?.reward && <ScratchReward reward={bundle.reward} />}
 
-        {/* Loyalty progress — goal-gradient + head start. */}
+        {/* Loyalty progress - goal-gradient + head start. */}
         {bundle?.loyalty && <LoyaltyCard loyalty={bundle.loyalty} />}
 
-        {/* Referral — the loop. Share your code; you both earn. */}
+        {/* Referral - the loop. Share your code; you both earn. */}
         {bundle?.loyalty && order && (
           <InviteCard loyalty={bundle.loyalty} slug={order.restaurantSlug} tableId={order.tableId} />
         )}
 
-        {/* Social is independent of ordering — link out to the meet & chat hub. */}
+        {/* Social is independent of ordering - link out to the meet & chat hub. */}
         {order && (
           <Link
             href={`/r/${order.restaurantSlug}/t/${order.tableId}/meet`}
@@ -98,7 +98,7 @@ export default function OrderStatus({ orderId, backHref }: { orderId: string; ba
             <span>
               <span className="font-semibold">Meet &amp; chat people here 👋</span>
               <span className="mt-0.5 block text-sm text-[var(--color-muted)]">
-                Say hi to others at the venue — no order needed.
+                Say hi to others at the venue - no order needed.
               </span>
             </span>
             <span className="flex-none text-[var(--color-zap)]">Open →</span>
@@ -174,7 +174,7 @@ function ScratchReward({ reward }: { reward: Reward }) {
                 {reward.label}
               </div>
               {isPrize && (
-                <div className="mt-1 text-xs text-amber-300">⏳ Expires in {days} day{days !== 1 ? "s" : ""} — see you soon!</div>
+                <div className="mt-1 text-xs text-amber-300">⏳ Expires in {days} day{days !== 1 ? "s" : ""} - see you soon!</div>
               )}
             </div>
           ) : (
@@ -212,16 +212,16 @@ function InviteCard({
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      /* clipboard blocked — the link is still visible to copy manually */
+      /* clipboard blocked - the link is still visible to copy manually */
     }
   }
 
   return (
     <div className="card mt-4 p-5">
-      <div className="text-sm font-semibold">Invite a friend — you both win</div>
+      <div className="text-sm font-semibold">Invite a friend - you both win</div>
       <p className="mt-1 text-sm text-[var(--color-muted)]">
         When a friend orders with your code, you <span className="text-[var(--color-zap)]">both</span> get a
-        reward. If they bring a friend too, you earn again — the chain keeps going.
+        reward. If they bring a friend too, you earn again - the chain keeps going.
       </p>
 
       <div className="mt-3 flex items-center justify-between rounded-lg border border-dashed border-[var(--color-line)] bg-[var(--color-surface-2)] px-4 py-3">
@@ -285,7 +285,7 @@ function LoyaltyCard({ loyalty }: { loyalty: LoyaltySnapshot }) {
 
       <p className="mt-3 text-sm">
         {loyaltyJustCompleted ? (
-          <span className="font-semibold text-[var(--color-zap)]">🎉 Card complete — a free dessert is waiting on your next visit!</span>
+          <span className="font-semibold text-[var(--color-zap)]">🎉 Card complete - a free dessert is waiting on your next visit!</span>
         ) : left === 0 ? (
           <span className="font-semibold text-[var(--color-zap)]">You&apos;re one order from a free dessert 🍰</span>
         ) : (

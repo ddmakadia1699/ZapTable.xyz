@@ -37,7 +37,7 @@ export default function SettingsForm({ slug, initial }: { slug: string; initial:
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Could not save");
       setS(structuredClone(data.settings)); // reflect server-side clamping
-      setMsg({ ok: true, text: "Saved — live for guests now." });
+      setMsg({ ok: true, text: "Saved - live for guests now." });
     } catch (e) {
       setMsg({ ok: false, text: e instanceof Error ? e.message : "Could not save" });
     } finally {
@@ -75,7 +75,7 @@ export default function SettingsForm({ slug, initial }: { slug: string; initial:
       </Section>
 
       {/* Scratch reward */}
-      <Section title="Scratch reward" subtitle="Odds are a fraction 0–1. The rest is 'no prize this time'.">
+      <Section title="Scratch reward" subtitle="Odds are a fraction 0-1. The rest is 'no prize this time'.">
         <Row>
           <Num label="Cash-off amount" value={s.scratch.amount} min={0} max={100000}
             onChange={(v) => patch((d) => (d.scratch.amount = v))} />

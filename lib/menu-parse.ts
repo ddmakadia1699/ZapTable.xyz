@@ -1,6 +1,6 @@
 // Menu ingestion: turn an uploaded menu (photo or PDF) into a structured menu.
 //
-// ZapTable's signature onboarding step — the admin uploads their existing menu and
+// ZapTable's signature onboarding step - the admin uploads their existing menu and
 // Claude vision reads it into items, prices and categories.
 //
 // Provider is chosen by env:
@@ -56,7 +56,7 @@ export async function parseMenu(data: string, mediaType: string): Promise<ParseR
 
   const parsed = MenuSchema.safeParse(extractJson(text));
   if (!parsed.success || parsed.data.items.length === 0) {
-    // Couldn't read a usable menu — fail soft to the mock so onboarding never dead-ends.
+    // Couldn't read a usable menu - fail soft to the mock so onboarding never dead-ends.
     return { items: mockMenu(), source: "mock" };
   }
   return { items: parsed.data.items, source: useBedrock ? "bedrock" : "anthropic" };

@@ -40,7 +40,7 @@ export default async function AdminOverview() {
               <Link href="/admin/menu" className="text-[var(--color-zap)] underline-offset-2 hover:underline">
                 Upload your menu
               </Link>{" "}
-              as a photo or PDF — ZapTable reads it into items &amp; prices.
+              as a photo or PDF - ZapTable reads it into items &amp; prices.
             </span>
           </li>
           <li className="flex gap-3">
