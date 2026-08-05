@@ -1,11 +1,25 @@
 import QRCode from "qrcode";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { DEMO_SLUG, getRestaurant, setTableCount } from "@/lib/db/repo";
 
 export const dynamic = "force-dynamic";
 
-function baseUrl(): string {
-  return process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
+async function getBaseUrl(): Promise<string> {
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    return process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, "");
+  }
+  try {
+    const headersList = await headers();
+    const host = headersList.get("host");
+    const proto = headersList.get("x-forwarded-proto") ?? "https";
+    if (host && !host.includes("localhost")) {
+      return `${proto}://${host}`;
+    }
+  } catch {
+    // fallback
+  }
+  return "https://www.zaptable.tech";
 }
 
 // Server action: regenerate the table set from a new count.
@@ -20,10 +34,11 @@ async function updateTables(formData: FormData) {
 
 export default async function TablesPage() {
   const r = (await getRestaurant(DEMO_SLUG))!;
+  const base = await getBaseUrl();
 
   const qrs = await Promise.all(
     r.tables.map(async (t) => {
-      const url = `${baseUrl()}/r/${r.slug}/t/${t.id}`;
+      const url = `${base}/r/${r.slug}/t/${t.id}`;
       const dataUrl = await QRCode.toDataURL(url, { margin: 1, width: 240, color: { dark: "#0a0b0d", light: "#ffffff" } });
       return { ...t, url, dataUrl };
     }),
@@ -77,8 +92,8 @@ export default async function TablesPage() {
       </div>
 
       <p className="mt-6 text-xs text-[var(--color-muted)]">
-        QR target base URL is <code className="text-[var(--color-zap)]">{baseUrl()}</code> - set{" "}
-        <code className="text-[var(--color-zap)]">NEXT_PUBLIC_BASE_URL</code> for production. A
+        QR target base URL is <code className="text-[var(--color-zap)]">{base}</code> - set{" "}
+        <code className="text-[var(--color-zap)]">NEXT_PUBLIC_BASE_URL</code> for production override. A
         downloadable print-ready PDF of all codes is on the roadmap.
       </p>
     </div>
