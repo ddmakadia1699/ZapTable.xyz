@@ -116,7 +116,7 @@ export function SaaSLanding({
               </svg>
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
-              ZapTable<span className="text-emerald-400">.xyz</span>
+              ZapTable
             </span>
           </Link>
 
@@ -894,7 +894,7 @@ export function SaaSLanding({
       <footer className="py-10 text-xs text-slate-500">
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-slate-200 font-bold">ZapTable.xyz</span>
+            <span className="text-slate-200 font-bold">ZapTable</span>
             <span>- Modern Dine-In QR Infrastructure</span>
           </div>
 

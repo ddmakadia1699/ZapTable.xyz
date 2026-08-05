@@ -58,7 +58,7 @@ export default function ComingSoonContent() {
               </svg>
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
-              ZapTable<span className="text-emerald-400">.xyz</span>
+              ZapTable
             </span>
           </Link>
 
@@ -127,7 +127,7 @@ export default function ComingSoonContent() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
-        &copy; {new Date().getFullYear()} ZapTable.xyz. All rights reserved.
+        &copy; {new Date().getFullYear()} ZapTable. All rights reserved.
       </footer>
     </div>
   );
