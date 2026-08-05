@@ -210,7 +210,7 @@ export function SaaSLanding({
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
                   Express Interest for Beta Access
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium">Join 200+ venues</span>
+                <span className="text-[11px] text-slate-500 font-medium">Early Access</span>
               </div>
               <InterestForm
                 placeholder="Enter work email to express interest..."
@@ -599,70 +599,6 @@ export function SaaSLanding({
               <p className="mt-2 text-slate-400 text-xs leading-relaxed">
                 Automated guest stamp cards, instant scratch rewards, and friend-invite incentives configured directly from merchant settings.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Operator Testimonials / Social Proof ───────────────────────── */}
-      <section className="py-20 border-b border-slate-800/60 bg-slate-950/40">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2">
-              Operator Feedback
-            </h2>
-            <h3 className="text-3xl font-extrabold text-white">
-              Trusted by Leading Cafes &amp; Casual Dining Rooms
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="card p-6">
-              <div className="flex gap-1 text-amber-400 mb-3 text-xs">★★★★★</div>
-              <p className="text-xs text-slate-300 leading-relaxed italic">
-                &quot;ZapTable eliminated our weekend order lines completely. Guests scan the QR at their table, order drinks immediately, and our average table turnover speed improved by 14 minutes.&quot;
-              </p>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">
-                  MC
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Marcus Chen</div>
-                  <div className="text-[10px] text-slate-400">Founder, Artisan Brew Lab</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card p-6">
-              <div className="flex gap-1 text-amber-400 mb-3 text-xs">★★★★★</div>
-              <p className="text-xs text-slate-300 leading-relaxed italic">
-                &quot;Uploading our menu photo and having AI auto-generate our digital menu took less than 2 minutes. We saved over $1,800/month by bypassing third-party percentage commissions.&quot;
-              </p>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-xs">
-                  SL
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Sarah Lin</div>
-                  <div className="text-[10px] text-slate-400">General Manager, Osteria Bella</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card p-6">
-              <div className="flex gap-1 text-amber-400 mb-3 text-xs">★★★★★</div>
-              <p className="text-xs text-slate-300 leading-relaxed italic">
-                &quot;The zero-app-download experience is the killer feature. Older diners and young guests alike just point their camera and order. It feels like magic.&quot;
-              </p>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-xs">
-                  DR
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">David Rivera</div>
-                  <div className="text-[10px] text-slate-400">Operations Director, Taco Social</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
