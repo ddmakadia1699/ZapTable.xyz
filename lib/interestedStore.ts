@@ -11,7 +11,6 @@ export interface InterestedEmail {
 const DATA_DIR = path.join(process.cwd(), "data");
 const DATA_FILE = path.join(DATA_DIR, "interested.json");
 
-// In-memory array for hot-reloading & fast reads
 let memoryStore: InterestedEmail[] = [];
 
 function ensureDataFile() {
@@ -26,23 +25,31 @@ function ensureDataFile() {
       memoryStore = JSON.parse(raw);
     }
   } catch (err) {
-    console.warn("Failed to initialize local interested.json file:", err);
+    console.warn("Local storage file read fallback:", err);
   }
 }
 
-// Read on module load
+function saveDataFile() {
+  try {
+    ensureDataFile();
+    fs.writeFileSync(DATA_FILE, JSON.stringify(memoryStore, null, 2), "utf-8");
+  } catch (err) {
+    console.warn("Local storage file write fallback:", err);
+  }
+}
+
 ensureDataFile();
 
 export async function addInterestedEmail(email: string): Promise<{ success: boolean; message: string; duplicate?: boolean }> {
   const normalized = email.trim().toLowerCase();
-  
+
   if (!normalized || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) {
     return { success: false, message: "Please enter a valid email address." };
   }
 
-  // 1. Check local file memory
-  ensureDataFile();
-  const exists = memoryStore.some((e) => e.email.toLowerCase() === normalized);
+  // 1. Check existing
+  const existingList = await getInterestedEmails();
+  const exists = existingList.some((e) => e.email.toLowerCase() === normalized);
   if (exists) {
     return { success: true, message: "You are already registered on our interest list!", duplicate: true };
   }
@@ -54,22 +61,36 @@ export async function addInterestedEmail(email: string): Promise<{ success: bool
   };
 
   memoryStore.unshift(entry);
+  saveDataFile();
 
-  try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(memoryStore, null, 2), "utf-8");
-  } catch (err) {
-    console.warn("Failed to write to interested.json:", err);
-  }
-
-  // 2. Also save to Supabase if connected
+  // 2. Persist to Supabase if available
   if (hasSupabase()) {
     try {
-      await db().from("interested_emails").insert({
+      // Try dedicated table first
+      const { error } = await db().from("interested_emails").insert({
         email: normalized,
         created_at: new Date(entry.createdAt).toISOString(),
       });
+
+      if (error) {
+        // Fallback to guests table if interested_emails table not yet created
+        const { data: tenant } = await db().from("tenants").select("id").eq("slug", "demo-cafe").maybeSingle();
+        const tenantId = tenant?.id;
+
+        if (tenantId) {
+          await db().from("guests").upsert(
+            {
+              tenant_id: tenantId,
+              phone: `interest:${normalized}`,
+              name: normalized,
+              code: Math.random().toString(36).slice(2, 8).toUpperCase(),
+            },
+            { onConflict: "tenant_id,phone" }
+          );
+        }
+      }
     } catch (err) {
-      console.warn("Supabase save interested email fallback ignored:", err);
+      console.warn("Supabase save error:", err);
     }
   }
 
@@ -78,23 +99,39 @@ export async function addInterestedEmail(email: string): Promise<{ success: bool
 
 export async function getInterestedEmails(): Promise<InterestedEmail[]> {
   ensureDataFile();
-  
+
   if (hasSupabase()) {
     try {
-      const { data } = await db()
+      // 1. Try dedicated interested_emails table
+      const { data, error } = await db()
         .from("interested_emails")
         .select("id, email, created_at")
         .order("created_at", { ascending: false });
 
-      if (data && data.length > 0) {
+      if (!error && data && data.length > 0) {
         return data.map((d) => ({
           id: String(d.id),
           email: d.email,
           createdAt: new Date(d.created_at).getTime(),
         }));
       }
+
+      // 2. Fallback query from guests table
+      const { data: fallbackGuests } = await db()
+        .from("guests")
+        .select("id, phone, name, created_at")
+        .like("phone", "interest:%")
+        .order("created_at", { ascending: false });
+
+      if (fallbackGuests && fallbackGuests.length > 0) {
+        return fallbackGuests.map((g) => ({
+          id: g.id,
+          email: g.name || g.phone.replace(/^interest:/, ""),
+          createdAt: new Date(g.created_at).getTime(),
+        }));
+      }
     } catch (err) {
-      console.warn("Supabase query for interested emails failed, using local store:", err);
+      console.warn("Supabase fetch error:", err);
     }
   }
 
@@ -104,18 +141,14 @@ export async function getInterestedEmails(): Promise<InterestedEmail[]> {
 export async function deleteInterestedEmail(id: string): Promise<boolean> {
   ensureDataFile();
   memoryStore = memoryStore.filter((e) => e.id !== id);
-
-  try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(memoryStore, null, 2), "utf-8");
-  } catch (err) {
-    console.warn("Failed to update interested.json after delete:", err);
-  }
+  saveDataFile();
 
   if (hasSupabase()) {
     try {
       await db().from("interested_emails").delete().eq("id", id);
+      await db().from("guests").delete().eq("id", id);
     } catch (err) {
-      console.warn("Supabase delete failed:", err);
+      console.warn("Supabase delete error:", err);
     }
   }
 
