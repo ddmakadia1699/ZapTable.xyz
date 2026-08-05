@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { InterestForm } from "../components/InterestForm";
 
 const FEATURE_DETAILS: Record<string, { title: string; subtitle: string; tag: string }> = {
   enterprise: {
@@ -90,28 +91,7 @@ export default function ComingSoonContent() {
 
         {/* Early Access Form */}
         <div className="mt-10 w-full max-w-md">
-          {submitted ? (
-            <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-              Thank you. You have been added to the priority beta notification list.
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter work email for beta access..."
-                className="flex-1 px-4 py-3 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-5 py-3 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400 transition-all shrink-0"
-              >
-                Notify Me
-              </button>
-            </form>
-          )}
+          <InterestForm placeholder="Enter work email for beta access..." buttonText="Notify Me ⚡" />
         </div>
 
         {/* Quick Links */}

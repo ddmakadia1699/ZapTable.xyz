@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { InterestForm } from "./InterestForm";
 
 interface SaaSLandingProps {
   demoSlug: string;
@@ -200,6 +201,21 @@ export function SaaSLanding({
                 <span>Test Guest QR Scan</span>
                 <span className="text-xs text-slate-400 font-mono">({demoName})</span>
               </Link>
+            </div>
+
+            {/* Interest Email Capture Form */}
+            <div className="mt-10 max-w-xl mx-auto p-5 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-2xl backdrop-blur-sm">
+              <div className="flex items-center justify-between gap-2 mb-3 px-1">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                  Express Interest for Beta Access
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium">Join 200+ venues</span>
+              </div>
+              <InterestForm
+                placeholder="Enter work email to express interest..."
+                buttonText="Submit Interest ⚡"
+              />
             </div>
 
             {/* Metrics Counter Bar */}
