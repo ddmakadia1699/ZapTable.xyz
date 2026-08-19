@@ -1,6 +1,6 @@
-# ZapTable - Architecture (multi-tenant SaaS)
+# Tavexa - Architecture (multi-tenant SaaS)
 
-ZapTable is moving from a single-venue demo to a multi-tenant SaaS where many
+Tavexa is moving from a single-venue demo to a multi-tenant SaaS where many
 restaurants, cafés and hotels each manage their own menu, tables, orders, loyalty
 and social settings.
 

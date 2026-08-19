@@ -48,7 +48,7 @@ export default function SettingsForm({ slug, initial }: { slug: string; initial:
   return (
     <div className="mt-6 space-y-6">
       {/* Features */}
-      <Section title="Features" subtitle="Switch parts of ZapTable on or off for your venue.">
+      <Section title="Features" subtitle="Switch parts of Tavexa on or off for your venue.">
         <div className="divide-y divide-[var(--color-line)]">
           {FEATURES.map((f) => (
             <Toggle

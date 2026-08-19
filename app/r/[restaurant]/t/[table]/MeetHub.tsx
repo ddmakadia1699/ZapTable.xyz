@@ -27,7 +27,7 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
   useEffect(() => {
     setSid(getSid());
     try {
-      const raw = localStorage.getItem("zaptable:guest");
+      const raw = localStorage.getItem("tavexa:guest");
       if (raw) setName((JSON.parse(raw) as { name?: string }).name ?? "");
     } catch {
       /* ignore */
@@ -65,7 +65,7 @@ export default function MeetHub({ slug, tableId }: { slug: string; tableId: stri
       });
       const d = await res.json();
       if (!res.ok) throw new Error(d.error ?? "Could not join");
-      localStorage.setItem(`zaptable:me:${slug}`, d.code); // my public id for chat
+      localStorage.setItem(`tavexa:me:${slug}`, d.code); // my public id for chat
       setEditing(false);
       await load();
     } catch (e) {

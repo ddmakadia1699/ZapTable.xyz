@@ -24,7 +24,7 @@ export default function InterestedAdminPage() {
 
   // Auto-login from session storage if stored
   useEffect(() => {
-    const stored = sessionStorage.getItem("zaptable_interest_pwd");
+    const stored = sessionStorage.getItem("tavexa_interest_pwd");
     if (stored === "Dhru@1699dhru") {
       setSavedPassword(stored);
       setAuthenticated(true);
@@ -47,7 +47,7 @@ export default function InterestedAdminPage() {
       const data = await res.json();
 
       if (res.ok && data.authenticated) {
-        sessionStorage.setItem("zaptable_interest_pwd", password);
+        sessionStorage.setItem("tavexa_interest_pwd", password);
         setSavedPassword(password);
         setAuthenticated(true);
         fetchEmails(password);
@@ -76,7 +76,7 @@ export default function InterestedAdminPage() {
         setEmails(data.emails);
       } else if (res.status === 401) {
         setAuthenticated(false);
-        sessionStorage.removeItem("zaptable_interest_pwd");
+        sessionStorage.removeItem("tavexa_interest_pwd");
         setAuthError("Session expired. Please enter password again.");
       }
     } catch (err) {
@@ -129,12 +129,12 @@ export default function InterestedAdminPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `zaptable_interested_emails_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `tavexa_interested_emails_${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem("zaptable_interest_pwd");
+    sessionStorage.removeItem("tavexa_interest_pwd");
     setSavedPassword(null);
     setAuthenticated(false);
     setPassword("");
@@ -165,7 +165,7 @@ export default function InterestedAdminPage() {
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">ZapTable</span>
+              <span className="text-xl font-bold tracking-tight text-white">Tavexa</span>
             </Link>
             <h1 className="text-2xl font-black text-white">Admin Access</h1>
             <p className="text-xs text-slate-400 mt-1">Enter password to view interested user list</p>
@@ -234,7 +234,7 @@ export default function InterestedAdminPage() {
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
               </div>
-              <span className="text-lg font-bold text-white">ZapTable</span>
+              <span className="text-lg font-bold text-white">Tavexa</span>
             </Link>
             <span className="text-slate-600">/</span>
             <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">

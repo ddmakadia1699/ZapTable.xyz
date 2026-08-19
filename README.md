@@ -1,4 +1,4 @@
-# ZapTable
+# Tavexa
 
 **Scan. Order. Eat. - order from your phone's browser, no app.**
 
@@ -6,12 +6,12 @@
 
 ---
 
-## What is ZapTable?
+## What is Tavexa?
 
-ZapTable is a no-download web app for dine-in restaurants.
+Tavexa is a no-download web app for dine-in restaurants.
 
 A restaurant gets set up in minutes by **uploading their existing menu - a PDF or even a
-photo** - and ZapTable turns it into a clean digital menu automatically. Guests **scan a
+photo** - and Tavexa turns it into a clean digital menu automatically. Guests **scan a
 QR code at the table, the menu opens right in their phone browser** (no app, no login),
 and they order and pay. Orders land on a simple dashboard for the kitchen.
 
@@ -24,9 +24,9 @@ No app store. No clunky kiosks. No paper menus. Just scan and order.
 ### Restaurant admin - setup (one-time)
 
 1. **Sign up** and create the business (name, address, currency).
-2. **Upload the menu** - drop in a PDF or snap a photo. ZapTable reads it and builds the
+2. **Upload the menu** - drop in a PDF or snap a photo. Tavexa reads it and builds the
    digital menu (categories, items, prices) automatically. The admin can review and tweak.
-3. **Set the number of tables** - ZapTable generates a unique QR code per table.
+3. **Set the number of tables** - Tavexa generates a unique QR code per table.
 4. **Print the QR codes** (table tents / stickers) - download as a PDF.
 5. **Watch orders come in** on a simple live dashboard.
 
@@ -59,7 +59,7 @@ No app store. No clunky kiosks. No paper menus. Just scan and order.
 - **Menu reading:** Claude vision turns the uploaded PDF/photo into a structured menu.
 - **Database & auth:** **Supabase** (Postgres + Supabase Auth, multi-tenant with RLS).
 - **Backend API:** **AWS Lambda** + API Gateway (trusted-backend, service-role).
-- **Payments:** Stripe - multi-currency. **Funds settle directly into the restaurant's account**; ZapTable is a flat-fee SaaS.
+- **Payments:** Stripe - multi-currency. **Funds settle directly into the restaurant's account**; Tavexa is a flat-fee SaaS.
 - **QR codes:** generated per table, exported as a printable PDF.
 
 > The multi-tenant SaaS architecture (Supabase + AWS), data model, settings, and the

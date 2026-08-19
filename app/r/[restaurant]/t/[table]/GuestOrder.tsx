@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { money } from "@/lib/format";
 import type { MenuItem, OrderStatus } from "@/lib/types";
 
-const LS_KEY = "zaptable:guest";
+const LS_KEY = "tavexa:guest";
 
 const STATUS_LABEL: Record<OrderStatus, string> = {
   received: "received 🧾",
@@ -57,7 +57,7 @@ export default function GuestOrder({
   const [activeOrder, setActiveOrder] = useState<{ id: string; status: OrderStatus } | null>(null);
   const [trending, setTrending] = useState<{ name: string; qty: number }[]>([]);
 
-  const orderKey = `zaptable:order:${slug}:${tableId}`;
+  const orderKey = `tavexa:order:${slug}:${tableId}`;
 
   // Recognition: if we've seen this guest on this device, prefill + greet.
   useEffect(() => {
@@ -209,7 +209,7 @@ export default function GuestOrder({
 
       <header className="zap-glow border-b border-[var(--color-line)] px-5 py-5">
         <div className="text-xs text-[var(--color-muted)]">
-          <span aria-hidden>⚡</span> ZapTable · Table {tableLabel}
+          <span aria-hidden>⚡</span> Tavexa · Table {tableLabel}
         </div>
         <h1 className="mt-1 text-2xl font-semibold">
           {known?.name ? `Welcome back, ${known.name} 👋` : restaurantName}

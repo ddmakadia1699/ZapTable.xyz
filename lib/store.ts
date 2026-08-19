@@ -1,4 +1,4 @@
-// In-memory data store for the ZapTable MVP scaffold.
+// In-memory data store for the Tavexa MVP scaffold.
 //
 // This is intentionally NOT a database - it's a single-process store so the
 // demo runs with zero setup. State resets when the server restarts. Swap this
@@ -107,8 +107,8 @@ function rand(): string {
 }
 
 // ── singleton ──────────────────────────────────────────────────────────
-const g = globalThis as unknown as { __zaptableDb?: Db };
-const db: Db = (g.__zaptableDb ??= seed());
+const g = globalThis as unknown as { __tavexaDb?: Db };
+const db: Db = (g.__tavexaDb ??= seed());
 
 export const DEMO_SLUG = SEED_SLUG;
 

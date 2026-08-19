@@ -4,10 +4,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ZapTable - Scan. Order. Eat.",
+  title: "Tavexa - Scan. Order. Eat.",
   description: "Order from your phone's browser. No app, no waiting.",
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "ZapTable", statusBarStyle: "black-translucent" },
+  appleWebApp: { capable: true, title: "Tavexa", statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = {

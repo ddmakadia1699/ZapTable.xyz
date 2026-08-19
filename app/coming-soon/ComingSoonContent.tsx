@@ -59,7 +59,7 @@ export default function ComingSoonContent() {
               </svg>
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
-              ZapTable
+              Tavexa
             </span>
           </Link>
 
@@ -107,7 +107,7 @@ export default function ComingSoonContent() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
-        &copy; {new Date().getFullYear()} ZapTable. All rights reserved.
+        &copy; {new Date().getFullYear()} Tavexa. All rights reserved.
       </footer>
     </div>
   );

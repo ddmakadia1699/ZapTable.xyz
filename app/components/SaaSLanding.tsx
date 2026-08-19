@@ -101,8 +101,8 @@ export function SaaSLanding({
 
   // ROI Calculations
   const traditionalCut = Math.round(monthlyRevenue * 0.18); // 18% average commission on third-party apps
-  const zapTableCost = 129; // Pro Plan
-  const monthlySavings = Math.max(0, traditionalCut - zapTableCost);
+  const tavexaCost = 129; // Pro Plan
+  const monthlySavings = Math.max(0, traditionalCut - tavexaCost);
   const annualSavings = monthlySavings * 12;
 
   return (
@@ -117,7 +117,7 @@ export function SaaSLanding({
               </svg>
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
-              ZapTable
+              Tavexa
             </span>
           </Link>
 
@@ -159,9 +159,9 @@ export function SaaSLanding({
       {/* ── Hero Section ────────────────────────────────────────────────── */}
       <section className="relative pt-20 pb-20 overflow-hidden border-b border-slate-800/60 zap-glow">
         <div className="mx-auto max-w-7xl px-6 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto opacity-0 animate-fade-in-up">
             {/* Live Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-xs font-semibold text-emerald-400 mb-8 shadow-inner">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-xs font-semibold text-emerald-400 mb-8 shadow-inner animate-float" style={{ animationDuration: '4s' }}>
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
               <span>Zero-Friction Dine-In QR Infrastructure</span>
               <span className="text-slate-600">•</span>
@@ -450,7 +450,7 @@ export function SaaSLanding({
                 Calculate Your Restaurant&apos;s Annual Savings
               </h3>
               <p className="mt-2 text-xs text-slate-400">
-                Third-party delivery and ordering apps charge 15% - 30% per order. ZapTable charges $0 commission.
+                Third-party delivery and ordering apps charge 15% - 30% per order. Tavexa charges $0 commission.
               </p>
             </div>
 
@@ -485,8 +485,8 @@ export function SaaSLanding({
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">ZapTable SaaS Cost</div>
-                  <div className="text-xl font-bold text-cyan-400 font-mono mt-1">${zapTableCost} / mo</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Tavexa SaaS Cost</div>
+                  <div className="text-xl font-bold text-cyan-400 font-mono mt-1">${tavexaCost} / mo</div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
@@ -791,15 +791,15 @@ export function SaaSLanding({
             {[
               {
                 q: "Do dining guests need to download an application?",
-                a: "No. ZapTable is completely browser-native. Guests scan the table QR code with their default camera app and the digital menu opens immediately in Safari, Chrome, or any mobile browser without downloads or signups.",
+                a: "No. Tavexa is completely browser-native. Guests scan the table QR code with their default camera app and the digital menu opens immediately in Safari, Chrome, or any mobile browser without downloads or signups.",
               },
               {
                 q: "How does the AI Menu Importer process physical menus?",
                 a: "You can upload a photo of your paper menu or a PDF document in the Admin dashboard. Claude Vision AI extracts items, descriptions, categories, and prices automatically, populating your menu database in seconds.",
               },
               {
-                q: "Does ZapTable take a commission cut on customer orders?",
-                a: "No. ZapTable is a flat monthly SaaS product. We take 0% per-order commission. 100% of customer order payouts settle directly into your merchant Stripe account.",
+                q: "Does Tavexa take a commission cut on customer orders?",
+                a: "No. Tavexa is a flat monthly SaaS product. We take 0% per-order commission. 100% of customer order payouts settle directly into your merchant Stripe account.",
               },
               {
                 q: "What hardware is required for the kitchen staff?",
@@ -846,7 +846,7 @@ export function SaaSLanding({
       <footer className="py-10 text-xs text-slate-500">
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-slate-200 font-bold">ZapTable</span>
+            <span className="text-slate-200 font-bold">Tavexa</span>
             <span>- Modern Dine-In QR Infrastructure</span>
           </div>
 
@@ -866,7 +866,7 @@ export function SaaSLanding({
           </div>
 
           <div>
-            &copy; {new Date().getFullYear()} ZapTable. All rights reserved.
+            &copy; {new Date().getFullYear()} Tavexa. All rights reserved.
           </div>
         </div>
       </footer>

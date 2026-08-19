@@ -24,7 +24,7 @@ export default function ChatRoom({
 
   useEffect(() => {
     try {
-      setMe(localStorage.getItem(`zaptable:me:${slug}`));
+      setMe(localStorage.getItem(`tavexa:me:${slug}`));
     } catch {
       setMe(null);
     }

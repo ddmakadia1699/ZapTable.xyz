@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ── ZapTable design tokens ──────────────────────────────────────────── */
+/* ── Tavexa design tokens ──────────────────────────────────────────── */
 @theme {
   --color-ink: #07080a;
   --color-surface: #0e1015;
@@ -24,9 +24,10 @@ body {
 /* Glassmorphic Panel */
 .glass-panel {
   background: rgba(14, 16, 21, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Background Grid Overlay */
@@ -53,9 +54,9 @@ body {
 /* Radial Glow Background */
 .zap-glow {
   background:
-    radial-gradient(50% 40% at 50% 0%, rgba(16, 185, 129, 0.12), transparent 75%),
-    radial-gradient(40% 30% at 85% 15%, rgba(6, 182, 212, 0.08), transparent 70%),
-    radial-gradient(40% 30% at 15% 75%, rgba(16, 185, 129, 0.06), transparent 70%);
+    radial-gradient(60% 50% at 50% 0%, rgba(16, 185, 129, 0.15), transparent 75%),
+    radial-gradient(50% 40% at 85% 15%, rgba(6, 182, 212, 0.1), transparent 70%),
+    radial-gradient(50% 40% at 15% 75%, rgba(16, 185, 129, 0.08), transparent 70%);
 }
 
 /* Card Surface */
@@ -106,4 +107,30 @@ input[type="range"]::-webkit-slider-thumb {
   background: #10b981;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.7);
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

@@ -1,4 +1,4 @@
--- ZapTable — multi-tenant schema (Supabase / Postgres)
+-- Tavexa — multi-tenant schema (Supabase / Postgres)
 -- Phase 1 foundation. Run against your Supabase project (SQL editor or `supabase db push`).
 --
 -- Tenancy: every venue is a tenant; every row carries tenant_id.

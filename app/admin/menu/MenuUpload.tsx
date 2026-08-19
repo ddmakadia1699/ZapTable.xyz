@@ -42,7 +42,7 @@ export default function MenuUpload({ slug }: { slug: string }) {
     <div className="card p-6">
       <h2 className="font-semibold">Upload your menu</h2>
       <p className="mt-1 text-sm text-[var(--color-muted)]">
-        Drop a photo or PDF of your existing menu. ZapTable reads it into items,
+        Drop a photo or PDF of your existing menu. Tavexa reads it into items,
         prices and categories - review and tweak below. Replaces the current menu.
       </p>
 

@@ -25,7 +25,7 @@ export default async function GuestTablePage({
             This QR code isn&apos;t valid anymore. Ask staff for a fresh one.
           </p>
           <Link href="/" className="mt-6 inline-block text-sm text-[var(--color-zap)] hover:underline">
-            ← ZapTable home
+            ← Tavexa home
           </Link>
         </div>
       </main>

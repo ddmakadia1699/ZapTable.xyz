@@ -1,6 +1,6 @@
 // Menu ingestion: turn an uploaded menu (photo or PDF) into a structured menu.
 //
-// ZapTable's signature onboarding step - the admin uploads their existing menu and
+// Tavexa's signature onboarding step - the admin uploads their existing menu and
 // Claude vision reads it into items, prices and categories.
 //
 // Provider is chosen by env:

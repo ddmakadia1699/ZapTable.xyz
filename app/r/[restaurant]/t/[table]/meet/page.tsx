@@ -18,7 +18,7 @@ export default async function MeetPage({
         <div>
           <h1 className="text-xl font-semibold">Venue not found</h1>
           <Link href="/" className="mt-4 inline-block text-sm text-[var(--color-zap)] hover:underline">
-            ← ZapTable home
+            ← Tavexa home
           </Link>
         </div>
       </main>

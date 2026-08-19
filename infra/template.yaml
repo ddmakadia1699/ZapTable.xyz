@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  ZapTable backend — AWS Lambda + API Gateway (HTTP API). Database & auth are Supabase.
+  Tavexa backend — AWS Lambda + API Gateway (HTTP API). Database & auth are Supabase.
   SCAFFOLD: a starting point. Handlers live in lambda/<name>/ ; wire the data layer
   (lib/db) and verify the Supabase JWT for admin routes before deploying.
 

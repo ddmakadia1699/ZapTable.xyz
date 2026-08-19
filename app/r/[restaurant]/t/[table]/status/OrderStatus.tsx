@@ -63,7 +63,7 @@ export default function OrderStatus({ orderId, backHref }: { orderId: string; ba
     <main className="zap-glow min-h-screen px-5 py-10">
       <div className="mx-auto max-w-md">
         <div className="text-xs text-[var(--color-muted)]">
-          <span aria-hidden>⚡</span> ZapTable {order ? `· Table ${order.tableLabel}` : ""}
+          <span aria-hidden>⚡</span> Tavexa {order ? `· Table ${order.tableLabel}` : ""}
         </div>
         <h1 className="mt-1 text-2xl font-semibold">
           {bundle?.loyalty?.name ? `Thanks, ${bundle.loyalty.name}!` : "Your order"}
@@ -204,7 +204,7 @@ function InviteCard({
   const [copied, setCopied] = useState(false);
   const origin = typeof window !== "undefined" ? window.location.origin : "";
   const link = `${origin}/r/${slug}/t/${tableId}?ref=${loyalty.code}`;
-  const msg = `Order at our table on ZapTable with my code ${loyalty.code} and we both get a reward 🎁 ${link}`;
+  const msg = `Order at our table on Tavexa with my code ${loyalty.code} and we both get a reward 🎁 ${link}`;
 
   async function copy() {
     try {

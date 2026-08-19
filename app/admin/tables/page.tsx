@@ -19,7 +19,7 @@ async function getBaseUrl(): Promise<string> {
   } catch {
     // fallback
   }
-  return "https://www.zaptable.tech";
+  return "https://www.tavexa.co";
 }
 
 // Server action: regenerate the table set from a new count.

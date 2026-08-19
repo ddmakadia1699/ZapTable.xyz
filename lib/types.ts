@@ -1,4 +1,4 @@
-// Core domain types for ZapTable.
+// Core domain types for Tavexa.
 // Kept deliberately small for the MVP scaffold - extend as features land.
 
 export interface MenuItem {
