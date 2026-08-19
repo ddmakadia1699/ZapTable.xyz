@@ -48,12 +48,12 @@ export default function ComingSoonContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080a] text-slate-100 selection:bg-emerald-400 selection:text-black flex flex-col justify-between">
+    <div className="min-h-screen bg-[#07080a] text-slate-100 selection:bg-orange-400 selection:text-black flex flex-col justify-between">
       {/* Navbar */}
       <header className="border-b border-slate-800/80 bg-[#07080a]">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
               </svg>
@@ -75,8 +75,8 @@ export default function ComingSoonContent() {
       {/* Main Content */}
       <main className="mx-auto max-w-2xl px-6 py-20 text-center flex-1 flex flex-col justify-center items-center">
         {/* Module Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-[11px] font-mono font-semibold text-emerald-400 mb-6">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/20 bg-orange-500/5 text-[11px] font-mono font-semibold text-orange-400 mb-6">
+          <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-ping" />
           <span>{feature.tag} // COMING SOON</span>
         </div>
 

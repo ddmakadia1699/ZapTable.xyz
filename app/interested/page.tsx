@@ -155,12 +155,12 @@ export default function InterestedAdminPage() {
   // ── Password Protection Screen ──────────────────────────────────────────────
   if (!authenticated) {
     return (
-      <div className="min-h-screen bg-[#07080a] text-slate-100 flex items-center justify-center p-6 selection:bg-emerald-400 selection:text-black">
+      <div className="min-h-screen bg-[#07080a] text-slate-100 flex items-center justify-center p-6 selection:bg-orange-400 selection:text-black">
         <div className="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-2xl p-8 shadow-2xl backdrop-blur-md">
           {/* Logo & Header */}
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
@@ -183,7 +183,7 @@ export default function InterestedAdminPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter admin password..."
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-emerald-500 transition-all font-mono"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-orange-500 transition-all font-mono"
                 />
                 <button
                   type="button"
@@ -205,7 +205,7 @@ export default function InterestedAdminPage() {
             <button
               type="submit"
               disabled={authLoading}
-              className="w-full py-3.5 rounded-xl btn-zap text-xs font-bold uppercase tracking-wider text-slate-950 hover:scale-[1.01] transition-all disabled:opacity-50 shadow-lg shadow-emerald-500/20"
+              className="w-full py-3.5 rounded-xl btn-zap text-xs font-bold uppercase tracking-wider text-slate-950 hover:scale-[1.01] transition-all disabled:opacity-50 shadow-lg shadow-orange-500/20"
             >
               {authLoading ? "Authenticating..." : "Unlock Interested List &rarr;"}
             </button>
@@ -223,13 +223,13 @@ export default function InterestedAdminPage() {
 
   // ── Authenticated Admin Dashboard ──────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-[#07080a] text-slate-100 selection:bg-emerald-400 selection:text-black">
+    <div className="min-h-screen bg-[#07080a] text-slate-100 selection:bg-orange-400 selection:text-black">
       {/* Top Navbar */}
       <header className="border-b border-slate-800 bg-[#07080a]/90 sticky top-0 z-50 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
@@ -237,7 +237,7 @@ export default function InterestedAdminPage() {
               <span className="text-lg font-bold text-white">Tavexa</span>
             </Link>
             <span className="text-slate-600">/</span>
-            <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/20 text-orange-400">
               Interested Leads
             </span>
           </div>
@@ -277,12 +277,12 @@ export default function InterestedAdminPage() {
           {/* Stats Bar */}
           <div className="flex items-center gap-4">
             <div className="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-center min-w-[130px]">
-              <div className="text-2xl font-black text-emerald-400 font-mono">{emails.length}</div>
+              <div className="text-2xl font-black text-orange-400 font-mono">{emails.length}</div>
               <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Total Leads</div>
             </div>
 
             <div className="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-center min-w-[130px]">
-              <div className="text-2xl font-black text-cyan-400 font-mono">
+              <div className="text-2xl font-black text-red-400 font-mono">
                 {emails.length > 0 ? formatRelativeTime(emails[0].createdAt) : "None"}
               </div>
               <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Latest Lead</div>
@@ -301,7 +301,7 @@ export default function InterestedAdminPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by email address..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-orange-500 transition-all"
             />
           </div>
 
@@ -320,7 +320,7 @@ export default function InterestedAdminPage() {
             <button
               onClick={handleExportCSV}
               disabled={!filteredEmails.length}
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold text-emerald-400 hover:bg-emerald-500/20 transition-all disabled:opacity-40 flex items-center justify-center gap-2"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 text-xs font-bold text-orange-400 hover:bg-orange-500/20 transition-all disabled:opacity-40 flex items-center justify-center gap-2"
             >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -334,7 +334,7 @@ export default function InterestedAdminPage() {
         <div className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden">
           {loading ? (
             <div className="p-12 text-center text-slate-400 text-xs font-semibold flex flex-col items-center justify-center gap-3">
-              <svg className="animate-spin h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>

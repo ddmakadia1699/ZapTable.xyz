@@ -116,7 +116,7 @@ export default function OrderStatus({ orderId, backHref }: { orderId: string; ba
                     active
                       ? "bg-[var(--color-zap)] text-[#04140c]"
                       : done
-                        ? "bg-emerald-500/20 text-emerald-300"
+                        ? "bg-orange-500/20 text-orange-300"
                         : "bg-[var(--color-surface-2)] text-[var(--color-muted)]"
                   }`}
                 >

@@ -107,12 +107,12 @@ export function SaaSLanding({
   const annualSavings = monthlySavings * 12;
 
   return (
-    <div className="min-h-screen bg-[#07080a] bg-grid-pattern text-slate-100 selection:bg-emerald-400 selection:text-black">
+    <div className="min-h-screen bg-[#07080a] bg-grid-pattern text-slate-100 selection:bg-orange-400 selection:text-black">
       {/* ── Sticky Header / Navigation Bar ─────────────────────────────── */}
       <header className="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/20 group-hover:border-emerald-500/40 transition-colors overflow-hidden bg-[#07080a]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-orange-500/20 group-hover:border-orange-500/40 transition-colors overflow-hidden bg-[#07080a]">
               <Image src="/onlyLogo.png" alt="Tavexa Logo" width={36} height={36} className="object-cover" />
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
@@ -160,8 +160,8 @@ export function SaaSLanding({
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto opacity-0 animate-fade-in-up">
             {/* Live Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-xs font-semibold text-emerald-400 mb-8 shadow-inner animate-float" style={{ animationDuration: '4s' }}>
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/25 bg-orange-500/10 text-xs font-semibold text-orange-400 mb-8 shadow-inner animate-float" style={{ animationDuration: '4s' }}>
+              <span className="h-2 w-2 rounded-full bg-orange-400 animate-ping" />
               <span>Zero-Friction Dine-In QR Infrastructure</span>
               <span className="text-slate-600">•</span>
               <span className="text-slate-300 font-normal">0% Commission Cut</span>
@@ -185,7 +185,7 @@ export function SaaSLanding({
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/admin"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl btn-zap text-base font-bold shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2.5"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl btn-zap text-base font-bold shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2.5"
               >
                 <span>Launch Restaurant Admin</span>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -205,8 +205,8 @@ export function SaaSLanding({
             {/* Interest Email Capture Form */}
             <div className="mt-10 max-w-xl mx-auto p-5 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-2xl backdrop-blur-sm">
               <div className="flex items-center justify-between gap-2 mb-3 px-1">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-xs font-bold text-orange-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-orange-400 animate-ping" />
                   Express Interest for Beta Access
                 </span>
                 <span className="text-[11px] text-slate-500 font-medium">Early Access</span>
@@ -225,12 +225,12 @@ export function SaaSLanding({
               </div>
 
               <div className="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40">
-                <div className="text-2xl font-black text-emerald-400 font-mono">0% Cut</div>
+                <div className="text-2xl font-black text-orange-400 font-mono">0% Cut</div>
                 <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Flat Subscription Only</div>
               </div>
 
               <div className="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40">
-                <div className="text-2xl font-black text-cyan-400 font-mono">2 Min</div>
+                <div className="text-2xl font-black text-red-400 font-mono">2 Min</div>
                 <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">AI Photo Menu Setup</div>
               </div>
 
@@ -247,7 +247,7 @@ export function SaaSLanding({
       <section id="simulator" className="py-20 border-b border-slate-800/60 bg-slate-950/60">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2">
+            <h2 className="text-xs font-bold tracking-widest text-orange-400 uppercase mb-2">
               Interactive Sandbox
             </h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -263,7 +263,7 @@ export function SaaSLanding({
                 onClick={() => setActiveTab("guest")}
                 className={`px-4 py-1.5 rounded-md text-xs font-semibold transition-all ${
                   activeTab === "guest"
-                    ? "bg-emerald-500 text-slate-950"
+                    ? "bg-orange-500 text-slate-950"
                     : "text-slate-400"
                 }`}
               >
@@ -273,7 +273,7 @@ export function SaaSLanding({
                 onClick={() => setActiveTab("admin")}
                 className={`px-4 py-1.5 rounded-md text-xs font-semibold transition-all ${
                   activeTab === "admin"
-                    ? "bg-cyan-500 text-slate-950"
+                    ? "bg-red-500 text-slate-950"
                     : "text-slate-400"
                 }`}
               >
@@ -290,7 +290,7 @@ export function SaaSLanding({
                   <div>
                     <div className="text-xs font-bold text-white flex items-center gap-2">
                       <span>{demoName}</span>
-                      <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded">
                         Table {tableLabel}
                       </span>
                     </div>
@@ -320,11 +320,11 @@ export function SaaSLanding({
                       <div>
                         <div className="text-xs font-bold text-white">{item.name}</div>
                         <div className="text-[10px] text-slate-400">{item.desc}</div>
-                        <div className="text-xs font-bold text-emerald-400 mt-0.5">${item.price.toFixed(2)}</div>
+                        <div className="text-xs font-bold text-orange-400 mt-0.5">${item.price.toFixed(2)}</div>
                       </div>
                       <button
                         onClick={() => addToCart(item)}
-                        className="h-8 w-8 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30 hover:bg-emerald-500 hover:text-black transition-colors flex items-center justify-center shrink-0 ml-3"
+                        className="h-8 w-8 rounded-lg bg-orange-500/10 text-orange-400 font-bold border border-orange-500/30 hover:bg-orange-500 hover:text-black transition-colors flex items-center justify-center shrink-0 ml-3"
                       >
                         +
                       </button>
@@ -344,13 +344,13 @@ export function SaaSLanding({
                         {cart.map((c) => (
                           <div key={c.id} className="flex justify-between text-[11px]">
                             <span>{c.qty}x {c.name}</span>
-                            <span className="font-mono text-emerald-400">${(c.price * c.qty).toFixed(2)}</span>
+                            <span className="font-mono text-orange-400">${(c.price * c.qty).toFixed(2)}</span>
                           </div>
                         ))}
                       </div>
                       <button
                         onClick={placeSimulatedOrder}
-                        className="w-full py-3 rounded-xl btn-zap text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl btn-zap text-slate-950 font-bold text-xs shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2"
                       >
                         <span>Place Order (${cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2)}) &rarr;</span>
                       </button>
@@ -367,7 +367,7 @@ export function SaaSLanding({
                   <div>
                     <div className="text-xs font-bold text-white flex items-center gap-2">
                       <span>Kitchen Dispatch KDS</span>
-                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-mono px-2 py-0.5 rounded border border-emerald-500/20">
+                      <span className="text-[10px] bg-orange-500/10 text-orange-400 font-mono px-2 py-0.5 rounded border border-orange-500/20">
                         {simulatedOrders.length} ORDERS ACTIVE
                       </span>
                     </div>
@@ -384,8 +384,8 @@ export function SaaSLanding({
                         ord.status === "Received"
                           ? "bg-slate-900 border-amber-500/40 shadow-sm shadow-amber-500/5"
                           : ord.status === "Preparing"
-                          ? "bg-slate-900 border-cyan-500/40"
-                          : "bg-slate-900 border-emerald-500/40"
+                          ? "bg-slate-900 border-red-500/40"
+                          : "bg-slate-900 border-orange-500/40"
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -402,8 +402,8 @@ export function SaaSLanding({
                             ord.status === "Received"
                               ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
                               : ord.status === "Preparing"
-                              ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
-                              : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                              ? "bg-red-500/10 text-red-400 border border-red-500/20"
+                              : "bg-orange-500/10 text-orange-400 border border-orange-500/20"
                           }`}
                         >
                           {ord.status.toUpperCase()}
@@ -415,14 +415,14 @@ export function SaaSLanding({
                       </div>
 
                       <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold text-emerald-400">
+                        <span className="text-xs font-mono font-bold text-orange-400">
                           ${ord.total.toFixed(2)}
                         </span>
 
                         {ord.status !== "Ready" && (
                           <button
                             onClick={() => advanceOrderStatus(ord.id)}
-                            className="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/30 hover:bg-emerald-500 hover:text-black transition-colors"
+                            className="px-3 py-1 rounded-lg bg-orange-500/10 text-orange-400 text-xs font-semibold border border-orange-500/30 hover:bg-orange-500 hover:text-black transition-colors"
                           >
                             Mark {ord.status === "Received" ? "Preparing" : "Ready"} &rarr;
                           </button>
@@ -442,7 +442,7 @@ export function SaaSLanding({
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-slate-800 bg-slate-900/50 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2">
+              <h2 className="text-xs font-bold tracking-widest text-orange-400 uppercase mb-2">
                 0% Commission Guarantee
               </h2>
               <h3 className="text-3xl font-extrabold text-white">
@@ -458,7 +458,7 @@ export function SaaSLanding({
               <div>
                 <div className="flex justify-between items-center text-sm font-semibold mb-3">
                   <span className="text-slate-300">Monthly Dine-In Revenue:</span>
-                  <span className="text-xl font-bold font-mono text-emerald-400">${monthlyRevenue.toLocaleString()} / mo</span>
+                  <span className="text-xl font-bold font-mono text-orange-400">${monthlyRevenue.toLocaleString()} / mo</span>
                 </div>
                 <input
                   type="range"
@@ -485,12 +485,12 @@ export function SaaSLanding({
 
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
                   <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Tavexa SaaS Cost</div>
-                  <div className="text-xl font-bold text-cyan-400 font-mono mt-1">${tavexaCost} / mo</div>
+                  <div className="text-xl font-bold text-red-400 font-mono mt-1">${tavexaCost} / mo</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                  <div className="text-xs text-emerald-400 uppercase tracking-wider font-bold">Your Extra Profit</div>
-                  <div className="text-2xl font-black text-emerald-400 font-mono mt-1">+${annualSavings.toLocaleString()} / yr</div>
+                <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/30">
+                  <div className="text-xs text-orange-400 uppercase tracking-wider font-bold">Your Extra Profit</div>
+                  <div className="text-2xl font-black text-orange-400 font-mono mt-1">+${annualSavings.toLocaleString()} / yr</div>
                 </div>
               </div>
             </div>
@@ -502,7 +502,7 @@ export function SaaSLanding({
       <section id="features" className="py-20 border-b border-slate-800/60">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2">
+            <h2 className="text-xs font-bold tracking-widest text-orange-400 uppercase mb-2">
               Enterprise Feature Set
             </h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -516,7 +516,7 @@ export function SaaSLanding({
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Feature 1 */}
             <div className="card p-6">
-              <div className="h-10 w-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                   <circle cx="12" cy="13" r="3" />
@@ -530,7 +530,7 @@ export function SaaSLanding({
 
             {/* Feature 2 */}
             <div className="card p-6">
-              <div className="h-10 w-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center mb-4">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="3" width="7" height="7" rx="1" />
                   <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -607,7 +607,7 @@ export function SaaSLanding({
       <section id="pricing" className="py-20 border-b border-slate-800/60">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2">
+            <h2 className="text-xs font-bold tracking-widest text-orange-400 uppercase mb-2">
               SaaS Subscription
             </h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -638,7 +638,7 @@ export function SaaSLanding({
                 }`}
               >
                 <span>Annual</span>
-                <span className="text-[10px] text-emerald-400 font-mono">(-20%)</span>
+                <span className="text-[10px] text-orange-400 font-mono">(-20%)</span>
               </button>
             </div>
           </div>
@@ -660,19 +660,19 @@ export function SaaSLanding({
 
                 <ul className="mt-6 space-y-2.5 text-xs text-slate-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Up to 15 Active Tables
+                    <span className="text-orange-400 font-bold">•</span> Up to 15 Active Tables
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> AI Vision Menu Importer
+                    <span className="text-orange-400 font-bold">•</span> AI Vision Menu Importer
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> PDF Table QR Generator
+                    <span className="text-orange-400 font-bold">•</span> PDF Table QR Generator
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Standard Order View
+                    <span className="text-orange-400 font-bold">•</span> Standard Order View
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Stripe Payment Integration
+                    <span className="text-orange-400 font-bold">•</span> Stripe Payment Integration
                   </li>
                 </ul>
               </div>
@@ -688,13 +688,13 @@ export function SaaSLanding({
             </div>
 
             {/* Tier 2: Pro (Featured) */}
-            <div className="card p-6 flex flex-col justify-between border-2 border-emerald-500 bg-slate-900/80 relative shadow-xl shadow-emerald-500/10">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 px-3 py-0.5 rounded-full font-bold text-[10px] uppercase tracking-wider">
+            <div className="card p-6 flex flex-col justify-between border-2 border-orange-500 bg-slate-900/80 relative shadow-xl shadow-orange-500/10">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-slate-950 px-3 py-0.5 rounded-full font-bold text-[10px] uppercase tracking-wider">
                 MOST POPULAR
               </div>
 
               <div>
-                <div className="text-[11px] font-mono font-semibold text-emerald-400 uppercase tracking-wider">PRO TIER</div>
+                <div className="text-[11px] font-mono font-semibold text-orange-400 uppercase tracking-wider">PRO TIER</div>
                 <h4 className="text-xl font-bold text-white mt-1">Full-Service Restaurants</h4>
                 <p className="text-xs text-slate-400 mt-1">Full suite for high-volume dining rooms and bars.</p>
 
@@ -707,28 +707,28 @@ export function SaaSLanding({
 
                 <ul className="mt-6 space-y-2.5 text-xs text-slate-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> <strong>Unlimited Tables &amp; QRs</strong>
+                    <span className="text-orange-400 font-bold">•</span> <strong>Unlimited Tables &amp; QRs</strong>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Advanced AI OCR Categorizer
+                    <span className="text-orange-400 font-bold">•</span> Advanced AI OCR Categorizer
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Real-Time Kitchen Display System
+                    <span className="text-orange-400 font-bold">•</span> Real-Time Kitchen Display System
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Guest Order Progress Tracker
+                    <span className="text-orange-400 font-bold">•</span> Guest Order Progress Tracker
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Loyalty Cards &amp; Instant Prizes
+                    <span className="text-orange-400 font-bold">•</span> Loyalty Cards &amp; Instant Prizes
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Chained Viral Referral System
+                    <span className="text-orange-400 font-bold">•</span> Chained Viral Referral System
                   </li>
                 </ul>
               </div>
 
               <div className="mt-8">
-                <Link href="/admin" className="w-full py-2.5 rounded-lg btn-zap text-slate-950 text-center font-bold text-xs block transition-all shadow-md shadow-emerald-500/20">
+                <Link href="/admin" className="w-full py-2.5 rounded-lg btn-zap text-slate-950 text-center font-bold text-xs block transition-all shadow-md shadow-orange-500/20">
                   Start Merchant Admin &rarr;
                 </Link>
               </div>
@@ -747,16 +747,16 @@ export function SaaSLanding({
 
                 <ul className="mt-6 space-y-2.5 text-xs text-slate-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Multi-Location Portal
+                    <span className="text-orange-400 font-bold">•</span> Multi-Location Portal
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Legacy POS Integrations
+                    <span className="text-orange-400 font-bold">•</span> Legacy POS Integrations
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Custom Domain Mapping
+                    <span className="text-orange-400 font-bold">•</span> Custom Domain Mapping
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">•</span> Dedicated Account Manager &amp; SLA
+                    <span className="text-orange-400 font-bold">•</span> Dedicated Account Manager &amp; SLA
                   </li>
                 </ul>
               </div>
@@ -820,7 +820,7 @@ export function SaaSLanding({
                   <span>{faq.q}</span>
                   <svg
                     className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${
-                      faqOpen === index ? "rotate-180 text-emerald-400" : ""
+                      faqOpen === index ? "rotate-180 text-orange-400" : ""
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"

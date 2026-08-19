@@ -69,13 +69,13 @@ export function InterestForm({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={placeholder}
-            className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all shadow-inner"
+            className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all shadow-inner"
           />
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-zap text-xs font-bold uppercase tracking-wider text-slate-950 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 shrink-0 shadow-lg shadow-emerald-500/20"
+          className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-zap text-xs font-bold uppercase tracking-wider text-slate-950 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 shrink-0 shadow-lg shadow-orange-500/20"
         >
           {loading ? (
             <span className="flex items-center gap-2">
@@ -95,7 +95,7 @@ export function InterestForm({
         <div
           className={`mt-3 p-3 rounded-lg text-xs font-semibold flex items-center gap-2 ${
             status.type === "success"
-              ? "bg-emerald-500/10 border border-emerald-500/30 text-emerald-400"
+              ? "bg-orange-500/10 border border-orange-500/30 text-orange-400"
               : "bg-rose-500/10 border border-rose-500/30 text-rose-400"
           }`}
         >

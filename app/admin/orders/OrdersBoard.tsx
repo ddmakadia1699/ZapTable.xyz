@@ -16,7 +16,7 @@ const NEXT_LABEL: Record<OrderStatus, string | null> = {
 const BADGE: Record<OrderStatus, string> = {
   received: "bg-amber-500/15 text-amber-300",
   preparing: "bg-sky-500/15 text-sky-300",
-  ready: "bg-emerald-500/15 text-emerald-300",
+  ready: "bg-orange-500/15 text-orange-300",
   served: "bg-zinc-500/15 text-zinc-400",
 };
 

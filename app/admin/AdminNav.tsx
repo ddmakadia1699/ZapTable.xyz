@@ -31,7 +31,7 @@ export default function AdminNav() {
           >
             <span>{t.label}</span>
             {t.badge && (
-              <span className="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/20">
+              <span className="text-[10px] font-mono bg-orange-500/10 text-orange-400 px-1.5 py-0.5 rounded border border-orange-500/20">
                 {t.badge}
               </span>
             )}

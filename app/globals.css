@@ -7,8 +7,8 @@
   --color-surface-2: #14171f;
   --color-line: #222630;
   --color-muted: #808a9d;
-  --color-zap: #10b981; /* emerald-500 */
-  --color-zap-2: #06b6d4; /* cyan-500 */
+  --color-zap: #ff5500; /* orange-red */
+  --color-zap-2: #ff0000; /* red */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -40,13 +40,13 @@ body {
 
 /* Glowing text gradients */
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+  background: linear-gradient(135deg, #ff7f00 0%, #ff5500 50%, #cc4400 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #ff5500 0%, #ff0000 50%, #cc0000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -54,9 +54,9 @@ body {
 /* Radial Glow Background */
 .zap-glow {
   background:
-    radial-gradient(60% 50% at 50% 0%, rgba(16, 185, 129, 0.15), transparent 75%),
-    radial-gradient(50% 40% at 85% 15%, rgba(6, 182, 212, 0.1), transparent 70%),
-    radial-gradient(50% 40% at 15% 75%, rgba(16, 185, 129, 0.08), transparent 70%);
+    radial-gradient(60% 50% at 50% 0%, rgba(255, 85, 0, 0.15), transparent 75%),
+    radial-gradient(50% 40% at 85% 15%, rgba(255, 0, 0, 0.1), transparent 70%),
+    radial-gradient(50% 40% at 15% 75%, rgba(255, 85, 0, 0.08), transparent 70%);
 }
 
 /* Card Surface */
@@ -74,15 +74,15 @@ body {
 
 /* Zap Primary Action Button */
 .btn-zap {
-  background: linear-gradient(180deg, #10b981, #059669);
-  color: #04140c;
+  background: linear-gradient(180deg, #ff5500, #cc4400);
+  color: #fff;
   font-weight: 700;
   border-radius: 10px;
   transition: filter 0.15s ease, transform 0.05s ease, box-shadow 0.2s ease;
 }
 .btn-zap:hover {
   filter: brightness(1.1);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.3);
 }
 .btn-zap:active {
   transform: translateY(1px);
@@ -104,15 +104,15 @@ input[type="range"]::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #10b981;
+  background: #ff5500;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 15px rgba(255, 85, 0, 0.7);
 }
 
 /* Animations */
