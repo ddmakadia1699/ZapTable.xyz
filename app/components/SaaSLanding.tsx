@@ -113,7 +113,7 @@ export function SaaSLanding({
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/20 group-hover:border-emerald-500/40 transition-colors overflow-hidden bg-[#07080a]">
-              <Image src="/logo.png" alt="Tavexa Logo" width={36} height={36} className="object-cover" />
+              <Image src="/onlyLogo.png" alt="Tavexa Logo" width={36} height={36} className="object-cover" />
             </div>
             <span className="text-lg font-bold tracking-tight text-white">
               Tavexa
@@ -845,7 +845,7 @@ export function SaaSLanding({
       <footer className="py-10 text-xs text-slate-500">
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Tavexa Logo" width={20} height={20} className="rounded-sm" />
+            <Image src="/onlyLogo.png" alt="Tavexa Logo" width={20} height={20} className="rounded-sm" />
             <span className="text-slate-200 font-bold">Tavexa</span>
             <span>- Modern Dine-In QR Infrastructure</span>
           </div>
