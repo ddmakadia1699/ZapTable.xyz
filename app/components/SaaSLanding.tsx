@@ -111,8 +111,10 @@ export function SaaSLanding({
       {/* ── Sticky Header / Navigation Bar ─────────────────────────────── */}
       <header className="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <Image src="/onlyLogo.png" alt="Tavexa Logo" width={110} height={32} className="object-contain" />
+          <Link href="/" className="flex items-center group">
+            <div className="bg-slate-50 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-105 shadow-md shadow-orange-500/5">
+              <Image src="/onlyLogo.png" alt="Tavexa Logo" width={100} height={28} className="object-contain" />
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -839,8 +841,10 @@ export function SaaSLanding({
       {/* ── Footer ──────────────────────────────────────────────────────── */}
       <footer className="py-10 text-xs text-slate-500">
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Image src="/onlyLogo.png" alt="Tavexa Logo" width={80} height={24} className="object-contain" />
+          <div className="flex items-center gap-4">
+            <div className="bg-slate-50 px-2.5 py-1 rounded-md shadow-sm">
+              <Image src="/onlyLogo.png" alt="Tavexa Logo" width={80} height={24} className="object-contain" />
+            </div>
             <span className="hidden sm:inline">- Modern Dine-In QR Infrastructure</span>
           </div>
 
